@@ -1,0 +1,332 @@
+:root {
+  --contrast: #1f1f1f;
+  --contrast-2: #393939;
+  --contrast-3: #acacac;
+  --contrast-4: #d7d7d7;
+  --base: #fbf6f3;
+  --base-2: #ffffff;
+  --accent: #c54f01;
+  --accent-2: #dd5903;
+
+
+
+  --contrast: #1f1f1f;
+  --contrast-2: #393939;
+  --contrast-3: #14272C;
+  --contrast-4: #d7d7d7;
+  --base: #fbf6f3;
+  --base-2: #ffffff;
+  --accent-2: #887354;
+  --accent: #DEA657;
+  --accent-3: #887354; 
+  
+
+
+
+}
+.gb-container-testimonial {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    /* background-color: var(--contrast); */
+   
+    /* background: rgb(0,22,255);
+    background: linear-gradient(90deg, rgba(0,22,255,1) 0%, rgba(0,194,255,1) 22%, rgba(253,0,107,1) 58%, rgba(249,1,27,1) 100%);
+      */
+      /* background: rgb(0,151,255);
+background: linear-gradient(90deg, rgba(0,151,255,1) 0%, rgba(0,194,255,1) 19%, rgba(253,0,158,1) 73%, rgba(249,1,39,1) 100%); */
+ 
+
+  background-color: #59564c;
+  background-color: #374b37;
+  background-color: #0e0f10fd ;
+}
+
+  .gsta-container-inner-testimonial-l2 {
+   
+    z-index: 1;
+    position: relative;
+    padding: 100px 30px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  
+  .gsta-container-inner-testimonial-l2::before {
+    content: "";
+  background-image: url("img/healthy-food-1.webp");
+  background-size: cover;
+  position: absolute;
+    background-repeat: no-repeat;
+    background-position: center center;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.2;
+  }
+
+  
+  
+
+/*
+
+.hero-bg1 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-bg1::before {
+  content: "";
+  background-image: url("img/dish.jpg");
+  background-size: cover;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center center;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.2;
+}
+*/
+
+@media (max-width: 1024px) {
+  .gsta-container-inner-testimonial-l2 {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+
+  @media (max-width: 767px) {
+    .gsta-container-inner-testimonial-l2 {
+      flex-direction: column;
+      padding: 60px 20px;
+    }
+  }
+
+ 
+
+
+
+  h2.gsta-headline-h2 {
+    display: flex;
+    width: max-content;
+    font-size: 20px;
+    padding-bottom: 10px;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-left: auto;
+    border-bottom: 1px solid var(--contrast-4);
+    color: var(--accent-2);
+  }
+
+  h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+    line-height: 1.2em;
+    font-weight: 400;
+    text-transform: none;
+  }
+
+
+  h3.gsta-headline-testimonial-h3 {
+    text-align: center;
+    margin-bottom: 60px;
+    color: var(--base-2);
+  }
+  h3 {
+    font-size: 29px;
+    margin-bottom: 20px;
+    line-height: 1.2em;
+    font-weight: 400;
+    text-transform: none;
+  }
+
+
+
+  @media (max-width: 767px) {
+    .gb-container-testimonial-inner-l3 {
+      flex-direction: column;
+      row-gap: 30px;
+    }
+  }
+  .gb-container-testimonial-inner-l3 {
+    display: flex;
+    column-gap: 30px;
+  }
+
+
+
+  .gb-container-testimonial-inner-l4 {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 20px;
+    /* border: 1px solid var(--contrast-4); */
+    background-image: linear-gradient(135deg, var(--accent-2) 10%, rgba(56, 56, 56, 0) 10%);
+  }
+
+
+
+
+
+  .gb-container-testimonial-inner-l5 {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #fff;
+    /* background-color: #66c3df; */
+  }
+
+
+  p.gb-container-testimonial-inner-l5-headline-color {
+    color: var(--contrast-4);
+  }
+  p.gb-container-testimonial-inner-l5-headline-text {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 0px;
+    color: #fff;
+  }
+
+
+  p.container-testimonial-inner-l5-text-fmc {
+    font-size: 24px;
+    margin-bottom: 0px;
+    color: var(--base-3);
+  }
+
+  p.testimonial-inner-l5-text-fmc2 {
+    font-size: 18px;
+    margin-bottom: 0px;
+    color: var(--accent-2);
+  }
+
+
+  /********************
+  our dishes 
+  ************************/
+
+  
+  @media (max-width: 1024px) {
+    .our-dish-comtainer-l2 {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+  }
+  @media (max-width: 767px) {
+    .our-dish-comtainer-l2 {
+      flex-direction: column ;
+      padding: 60px 20px;
+    }
+  }
+  
+  .our-dish-comtainer-l2 {
+    
+    z-index: 1;
+    position: relative;
+    padding: 100px 30px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .our-dish-container {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  
+  h2.our-dish-online-order-h2 {
+  display: flex;
+  width: max-content;
+  font-size: 20px;
+  padding-bottom: 10px;
+  margin-right: auto;
+  margin-bottom: 15px;
+  margin-left: auto;
+  border-bottom: 1px solid var(--contrast-3);
+  color: var(--accent-2);
+}
+
+h3.our-dish-online-order-h3 {
+    text-transform: capitalize;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+
+ 
+  .our-dish-comtainer-l3 {
+    row-gap: 40px;
+     margin-left: -40px;
+    display: flex;
+   flex-wrap: wrap;
+  }
+  @media (max-width: 767px) {
+    .our-dish-comtainer-l3 {
+      justify-content: center;
+    
+    }
+  }
+  /* Repedte many time */ 
+  /*  
+  .gb-grid-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .gb-grid-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  } */
+
+  .our-dish-comtainer-l3 > .gb-grid-column {
+    padding-left:40px;
+  }
+
+
+  
+
+  a.our-dishes-button-b1 {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:max-content;
+    letter-spacing:0.02em;
+    font-weight:600;
+    text-transform:uppercase;
+    padding:12px 30px;
+    margin-top:60px;
+    margin-right:auto;
+    margin-left:auto;
+    border-radius:9999px;
+    background-color:var(--contrast-3);
+    color:var(--base-2);
+  }
+  a.our-dishes-button-b1:hover,
+  a.our-dishes-button-b1:active,
+  a.our-dishes-button-b1:focus {
+    background-color:var(--accent);
+    color:var(--base-2);
+  }
+
+
+  .gb-grid-wrapper > .gb-grid-column-our-dishes {
+    width: 33.333%;
+  }
+  .our-dish-comtainer-l3 > .gb-grid-column {
+    /* padding-left: 40px; */
+  }
+  @media (max-width: 767px) {
+    .gb-grid-wrapper > .gb-grid-column-our-dishes {
+      width: 600px;
+    }
+  }
+  
+
+  
