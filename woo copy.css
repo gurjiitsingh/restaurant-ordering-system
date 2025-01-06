@@ -1,0 +1,48 @@
+/**************** check out **************/
+/* .wc-block-components-button__text{
+  color:#fff;
+} */
+
+/***** woo generic ******/
+
+
+
+/* .wc-block-cart__submit-container a:link, .wc-block-cart__submit-container a:visited{
+  color:#fff;
+} */
+
+
+
+/**********************************
+			WOOCOMMERCE working seprated from main css
+  ***********************************/
+
+
+
+
+/*********** cart page ************/
+
+a.components-button {
+  text-decoration: none;
+}
+
+a.wc-block-components-product-name {
+  color: #222;
+  text-decoration: none;
+}
+
+/**************** check out **************/
+.wc-block-components-button__text{
+    color:#fff;
+}
+
+/***** woo generic ******/
+
+.add_to_cart_button {
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.wc-block-cart__submit-container a:link, .wc-block-cart__submit-container a:visited{
+    color:#fff;
+}

@@ -1,40 +1,15 @@
-:root {
-  --contrast: #1f1f1f;
-  --contrast-2: #393939;
-  --contrast-3: #acacac;
-  --contrast-4: #d7d7d7;
-  --base: #fbf6f3;
-  --base-2: #ffffff;
-  --accent: #c54f01;
-  --accent-2: #dd5903;
-
-
-
-  --contrast: #1f1f1f;
-  --contrast-2: #393939;
-  --contrast-3: #14272C;
-  --contrast-4: #d7d7d7;
-  --base: #fbf6f3;
-  --base-2: #ffffff;
-  --accent-2: #887354;
-  --accent: #DEA657;
-  --accent-3: #887354; 
-  
-
-
-
-}
+/* TESTIMONIAL  */
 .gb-container-testimonial {
     position: relative;
     overflow-x: hidden;
     overflow-y: hidden;
-    /* background-color: var(--contrast); */
+    /* background-color: --contrast; */
    
-    /* background: rgb(0,22,255);
-    background: linear-gradient(90deg, rgba(0,22,255,1) 0%, rgba(0,194,255,1) 22%, rgba(253,0,107,1) 58%, rgba(249,1,27,1) 100%);
+    /* background: rgb(0,22,255;
+    background: linear-gradient(90deg, rgba(0,22,255,1) 0%, rgba(0,194,255,1) 22%, rgba(253,0,107,1) 58%, rgba(249,1,27,1) 100%;
       */
-      /* background: rgb(0,151,255);
-background: linear-gradient(90deg, rgba(0,151,255,1) 0%, rgba(0,194,255,1) 19%, rgba(253,0,158,1) 73%, rgba(249,1,39,1) 100%); */
+      /* background: rgb(0,151,255;
+background: linear-gradient(90deg, rgba(0,151,255,1) 0%, rgba(0,194,255,1) 19%, rgba(253,0,158,1) 73%, rgba(249,1,39,1) 100%; */
  
 
   background-color: #59564c;
@@ -80,7 +55,7 @@ background: linear-gradient(90deg, rgba(0,151,255,1) 0%, rgba(0,194,255,1) 19%, 
 
 .hero-bg1::before {
   content: "";
-  background-image: url("img/dish.jpg");
+  background-image: url("img/dish.jpg";
   background-size: cover;
   position: absolute;
   background-repeat: no-repeat;
@@ -119,8 +94,8 @@ background: linear-gradient(90deg, rgba(0,151,255,1) 0%, rgba(0,194,255,1) 19%, 
     margin-right: auto;
     margin-bottom: 20px;
     margin-left: auto;
-    border-bottom: 1px solid var(--contrast-4);
-    color: var(--accent-2);
+    border-bottom: 1px solid #d7d7d7;
+    color: #887354;
   }
 
   h2 {
@@ -135,7 +110,7 @@ background: linear-gradient(90deg, rgba(0,151,255,1) 0%, rgba(0,194,255,1) 19%, 
   h3.gsta-headline-testimonial-h3 {
     text-align: center;
     margin-bottom: 60px;
-    color: var(--base-2);
+    color: #ffffff;
   }
   h3 {
     font-size: 29px;
@@ -165,8 +140,8 @@ background: linear-gradient(90deg, rgba(0,151,255,1) 0%, rgba(0,194,255,1) 19%, 
     overflow-x: hidden;
     overflow-y: hidden;
     padding: 20px;
-    /* border: 1px solid var(--contrast-4); */
-    background-image: linear-gradient(135deg, var(--accent-2) 10%, rgba(56, 56, 56, 0) 10%);
+    /* border: 1px solid #d7d7d7; */
+    background-image: linear-gradient(135deg, #887354) 10%, rgba(56, 56, 56, 0) 10%;
   }
 
 
@@ -185,7 +160,7 @@ background: linear-gradient(90deg, rgba(0,151,255,1) 0%, rgba(0,194,255,1) 19%, 
 
 
   p.gb-container-testimonial-inner-l5-headline-color {
-    color: var(--contrast-4);
+    color: #d7d7d7;
   }
   p.gb-container-testimonial-inner-l5-headline-text {
     font-size: 18px;
@@ -198,13 +173,13 @@ background: linear-gradient(90deg, rgba(0,151,255,1) 0%, rgba(0,194,255,1) 19%, 
   p.container-testimonial-inner-l5-text-fmc {
     font-size: 24px;
     margin-bottom: 0px;
-    color: var(--base-3);
+   
   }
 
   p.testimonial-inner-l5-text-fmc2 {
     font-size: 18px;
     margin-bottom: 0px;
-    color: var(--accent-2);
+    color: #887354;
   }
 
 
@@ -250,8 +225,8 @@ background: linear-gradient(90deg, rgba(0,151,255,1) 0%, rgba(0,194,255,1) 19%, 
   margin-right: auto;
   margin-bottom: 15px;
   margin-left: auto;
-  border-bottom: 1px solid var(--contrast-3);
-  color: var(--accent-2);
+  border-bottom: 1px solid #14272C;
+  color: #887354;
 }
 
 h3.our-dish-online-order-h3 {
@@ -305,14 +280,14 @@ h3.our-dish-online-order-h3 {
     margin-right:auto;
     margin-left:auto;
     border-radius:9999px;
-    background-color:var(--contrast-3);
-    color:var(--base-2);
+    background-color:#14272C;
+    color:#ffffff;
   }
   a.our-dishes-button-b1:hover,
   a.our-dishes-button-b1:active,
   a.our-dishes-button-b1:focus {
-    background-color:var(--accent);
-    color:var(--base-2);
+    background-color:#c54f01;
+    color:#ffffff;
   }
 
 

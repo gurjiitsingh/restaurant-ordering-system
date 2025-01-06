@@ -16,12 +16,24 @@ function add_support()
    add_theme_support( 'woocommerce' );
 }
 add_action( 'after_setup_theme', 'add_support' );
+add_filter('woocommerce_cart_needs_shipping_address','fun_return_shipping_param');
 
-// add_filter( 'formatted_woocommerce_price', 'ts_woo_decimal_price', 10, 5 );
-// function ts_woo_decimal_price( $formatted_price, $price, $decimal_places, $decimal_separator, $thousand_separator ) {
-// 	$unit = number_format( intval( $price ), 0, $decimal_separator, $thousand_separator );
-// 	$decimal = sprintf( '%02d', ( $price - intval( $price ) ) * 100 );
-// 	return $unit . '<sup>' . $decimal . '</sup>';}
+function fun_return_shipping_param($needs_shipping_address)
+{
+
+    $items = WC()->cart->get_cart();
+    $product_ids = array();
+    foreach($items as $item => $values) 
+    { 
+            $product_ids[] = $values['data']->get_id(); //You can get product id of product added in cart
+    }
+   // if(in_array($your_product_id, $product_ids)) // check whether your product is in cart
+       $needs_shipping_address = false;
+
+    return $needs_shipping_address;
+
+}
+
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -67,10 +79,16 @@ function gstadeveloperrestaurant_setup() {
 
 	class AWP_Menu_Walker extends Walker_Nav_Menu {
 		function start_el(&$output, $item, $depth=0, $args=[], $id=0) {
-			$output .= "<li>";
-	 
+			
+			$linkId = "iconId";
+			if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $item->title)){
+				$linkId = "iconId";;
+			}else{
+				$linkId = strtolower($item->title);
+			}
+			$output .= '<li id="'.$linkId.'">';
 			if ($item->url && $item->url != '#') {
-				$output .= '<a class="main-nav-link" href="' . $item->url . '">';
+				$output .= '<a class="main-nav-link"  href="' . $item->url . '">';
 			} else {
 				$output .= '<span>';
 			}
@@ -171,14 +189,16 @@ add_action( 'widgets_init', 'gstadeveloperrestaurant_widgets_init' );
  * Enqueue scripts and styles.
  */
 function gstadeveloperrestaurant_scripts() {
+	
 	wp_enqueue_style( 'gstadeveloperrestaurant-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'gstadeveloperrestaurant-style', 'rtl', 'replace' );
 
+
 	wp_enqueue_script( 'gstadeveloperrestaurant-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
-	wp_enqueue_style( 'head-css', get_theme_file_uri() . '/header-css.css' );
-	wp_enqueue_style( 'testimonial-css', get_theme_file_uri() . '/testimonial.css' );
-	wp_enqueue_style( 'mywoocommerce-css', get_theme_file_uri() . '/woo.css' );
+//	wp_enqueue_style( 'head-css', get_theme_file_uri() . '/header-css.css' );
+//	wp_enqueue_style( 'testimonial-css', get_theme_file_uri() . '/testimonial.css' );
+//wp_enqueue_style( 'mywoocommerce-css', get_theme_file_uri() . '/woo.css' );
 	
 	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -187,7 +207,11 @@ function gstadeveloperrestaurant_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'gstadeveloperrestaurant_scripts' );
 
-
+function enqueue_styles(){
+// wp_enqueue_style( 'gstadeveloperrestaurant-style', get_stylesheet_uri(), array(), _S_VERSION );
+// 	wp_style_add_data( 'gstadeveloperrestaurant-style', 'rtl', 'replace' );
+}
+add_action( 'wp_head', 'enqueue_styles', 99 );
 
 
 add_action( 'wp_enqueue_scripts', 'techiepress_wp_enqueue_scripts' );
@@ -195,13 +219,13 @@ add_action( 'wp_enqueue_scripts', 'techiepress_wp_enqueue_scripts' );
 //   src="https://code.jquery.com/jquery-3.7.1.min.js"
 //   integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
 //   crossorigin="anonymous"></script>
-function techiepress_wp_enqueue_scripts() {
+function techiepress_wp_enqueue_scripts() { 
 
 	wp_enqueue_script( 'bootstrap-jquery', 'https://code.jquery.com/jquery-3.7.1.min.js', array(), '1.0.0', true );
-	wp_enqueue_script( 'bootstrap-bundle', get_stylesheet_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array( 'bootstrap-jquery' ), '1.0.0', true );
+	//wp_enqueue_script( 'bootstrap-bundle', get_stylesheet_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array( 'bootstrap-jquery' ), '1.0.0', true );
 	
 	wp_enqueue_style( 'fontawesome-css', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css', '', '1.0.0', 'all' );
-	wp_enqueue_style( 'bootstrap-css', get_stylesheet_directory_uri() . '/assets/css/bootstrap.min.css', '', '1.0.0', 'all' );
+	//wp_enqueue_style( 'bootstrap-css', get_stylesheet_directory_uri() . '/assets/css/bootstrap.min.css', '', '1.0.0', 'all' );
 
   //wp_enqueue_script('my-custom-script',get_template_directory_uri().'/js/custom.js',array('jquery'),'1.0',true);
    // wp_localize_script('my-cutom-script', 'ajax_object',array('ajax_url'=>admin_url('admin-ajax.php')));
@@ -230,6 +254,13 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
+ * additions by me.
+ */
+require get_template_directory() . '/inc/extra.php';
+
+
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
@@ -248,6 +279,8 @@ if ( class_exists( 'WooCommerce' ) ) {
 
 /**********************/
    //EXTRA BY ME
+
+
 
    add_shortcode( 'product_description', 'display_product_description' );
 function display_product_description( $atts ){
@@ -275,10 +308,131 @@ function action_woocommerce_before_shop_loop_item( ) {
 };
 
 
+/**
+ * @snippet       WooCommerce: Redirect to Custom Thank you Page
+ */
+  
+//  add_action( 'woocommerce_thankyou', 'bbloomer_redirectcustom');
+  
+//  function bbloomer_redirectcustom( $order_id ){
+// 	 $order = wc_get_order( $order_id );
+// 	 $url = 'http://localhost/0-websites/restaurant/thanks';
+// 	 if ( ! $order->has_status( 'failed' ) ) {
+// 		 wp_safe_redirect( $url );
+// 		 exit;
+// 	 }
+//  }
+
+
+/**
+* FORM SUBMIT FOR TABLE BOOKING.
+*/
+
+/**
+* Enqueue scripts and styles.
+*/
+
+function fancy_lab_scripts(){
+
+	//wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js', array('jquery'),null,true );
+	
+	//	 wp_enqueue_style( 'gsta-form', get_template_directory_uri() . '/form.css', array(), '1.0', 'all' );
+	
+	
+	 }
+	 add_action( 'wp_enqueue_scripts', 'fancy_lab_scripts' );
+	
+	// -------------------- my code start ------------------
+	
+	
+	 function load_ajax() {
+	
+	wp_localize_script( 'main',
+	 'cpm_object',
+	array( 
+		'ajax_url' => admin_url( 'admin-ajax.php' ),
+		 // generate a nonce with a unique ID "myajax-post-comment-nonce"
+		// so that you can check it later when an AJAX request is sent
+		'postCommentNonce' => wp_create_nonce( 'myajax-post-comment-nonce' ),
+		'data_var_1' => 'value 1'
+	)
+	);
+		
+	}
+	add_action('wp_enqueue_scripts', 'load_ajax');
+	
+	// THE AJAX ADD ACTIONS
+	add_action( 'wp_ajax_set_form', 'set_form' );    //execute when wp logged in
+	add_action( 'wp_ajax_nopriv_set_form', 'set_form'); //execute when logged out
+	
+	
+	
+	// function to send mail, insert message in database
+	function set_form(){
+	
+		//CHeck  nonce FIRST HERE
+	
+	$nonce = $_POST['postCommentNonce'];
+	
+	// check to see if the submitted nonce matches with the
+	// generated nonce we created earlier
+	if ( ! wp_verify_nonce( $nonce, 'myajax-post-comment-nonce' ) ){
+		die ( 'Busted!');
+	}
+	// code start for sending email
+	
+		 //$name = $_POST['$name1'];//sanitize_text_field($_POST['name']);
+		 $name = $_POST['sender_name'];
+		$email = $_POST['sender_email'];
+	//	$message = "data";//$_POST['sender_message'];
+	$book_date = $_POST['book_date'];
+	$book_time = $_POST['book_time'];
+	// Set the recipient email address.
+			// FIXME: Update this to your desired email address.
+			$recipient = "gurjiitsingh2@gmail.com";
+	
+			// Set the email subject.
+			$subject = "Website contact form ". $name;
+	
+			// Build the email content.
+			$email_content = "Name: $name\n";
+			
+		  //  $email_content .= "Phone: $phone\n";
+			$email_content .= "Email: $email\n\n";
+			$email_content .= "Date:\n$book_date\n";
+			$email_content .= "Time:\n$book_time\n";
+	
+			// Build the email headers.
+			$email_headers = "From: $name <$email>";
+	
+	//mail($recipient, $name, "message", "admin@infiniteplumbingsolutions.co.uk");
+	if(mail($recipient, $subject, $email_content, $email_headers)) {
+				// Set a 200 (okay) response code.
+			  //  http_response_code(200);
+				echo "Thank You! Your table booking info has been sent.";
+			} else {
+				// Set a 500 (internal server error) response code.
+			  //  http_response_code(500);
+				echo "Oops! Something went wrong and we couldn't send your message.";
+			}
+		//echo $name;
+		 wp_die();
+		//die();
+	
+	}
+	
+	
+	// -------------------- my code end
 
 
 
-//***************** Ajax for Bookings *************************
+
+
+
+
+//************************************************************* 
+                /*Ajax for Bookings
+//*********************************************************** */
 
 
 
@@ -578,3 +732,4 @@ foreach($booking_records as $booking_record){
 }// end of function
 
 //exit();
+

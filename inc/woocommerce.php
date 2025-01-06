@@ -43,7 +43,7 @@ add_action( 'after_setup_theme', 'gstadeveloperrestaurant_woocommerce_setup' );
  * @return void
  */
 function gstadeveloperrestaurant_woocommerce_scripts() {
-	wp_enqueue_style( 'gstadeveloperrestaurant-woocommerce-style', get_template_directory_uri() . '/woocommerce.css', array(), _S_VERSION );
+	//wp_enqueue_style( 'gstadeveloperrestaurant-woocommerce-style', get_template_directory_uri() . '/woocommerce.css', array(), _S_VERSION );
 
 	$font_path   = WC()->plugin_url() . '/assets/fonts/';
 	$inline_font = '@font-face {
@@ -244,3 +244,83 @@ function woocommerce_change_archive_product_page_add_to_cart_text() {
     return __( 'Add', 'woocommerce' );
 
 }
+
+
+
+
+//************************************************************* 
+                /*Minimum payment to order a food
+//*********************************************************** */
+
+
+
+
+//$total_cart = WC()->cart->get_displayed_subtotal(); // without taxs and shipping fees
+
+// $cart_subtotal = WC()->cart->get_cart_subtotal();;
+//echo $total_cart; 
+// global $woocommerce;
+ //echo $woocommerce->cart->total;
+// debug_to_console($woocommerce->cart->total);
+
+// add_action( 'woocommerce_checkout_process', 'wc_minimum_order_amount' );
+// add_action( 'woocommerce_before_cart', 'wc_minimum_order_amount' );
+
+// function wc_minimum_order_amount() {
+//     // Set your minimum order amount here
+//     $minimum_order_amount = 9.99;
+
+
+
+//     if ( WC()->cart->total < $minimum_order_amount ) {
+//         if ( is_cart() ) {
+//             wc_print_notice( 
+//                 sprintf( 'You must have an order with a minimum of %s to proceed to checkout.', 
+//                 wc_price( $minimum_order_amount ) ), 'error' 
+//             );
+//         } else {
+//             wc_add_notice( 
+//                 sprintf( 'You must have an order with a minimum of %s to proceed to checkout.', 
+//                 wc_price( $minimum_order_amount ) ), 'error' 
+//             );
+//         }
+//     }
+// }
+
+
+
+// Set a minimum amount of order based on shipping zone & shipping method before checking out.
+
+//add_action( 'woocommerce_check_cart_items', 'cw_min_num_products' );
+
+// Only run in the Cart or Checkout pages.
+// function cw_min_num_products() {
+//     if ( is_cart() || is_checkout() ) {
+//         global $woocommerce;
+
+//         // Set the minimum order amount, shipping zone & shipping method before checking out.
+//         $minimum         = 25;
+//         $county          = array( 'GR' );
+//         $chosen_shipping = WC()->session->get( 'chosen_shipping_methods' )[0];
+//         $chosen_shipping = explode( ':', $chosen_shipping );
+
+//         // Defining var total amount.
+//         $cart_tot_order = WC()->cart->subtotal;
+
+//         // Compare values and add an error in Cart's total amount.
+//         // happens to be less than the minimum required before checking out.
+//         // Will display a message along the lines.
+//         if ( $cart_tot_order < $minimum && in_array( WC()->customer->get_shipping_country(), $county ) && $chosen_shipping[0] != 'local_pickup' ) {
+//             // Display error message.
+//             wc_add_notice(
+//                 sprintf(
+//                     'Δεν έχετε φτάσει ακόμη το ελάχιστο ποσό παραγγελίας των %s€.' . '<br/>Δεν υπάρχει ελάχιστη παραγγελία εάν επιλέξετε την παραλαβή από το κατάστημα.'
+//                     . '<br />Το τρέχον ποσό της παραγγελίας σας είναι : %s€.',
+//                     $minimum,
+//                     $cart_tot_order
+//                 ),
+//                 'error'
+//             );
+//         }
+//     }
+// }

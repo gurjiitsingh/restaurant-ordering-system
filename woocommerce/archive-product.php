@@ -42,10 +42,8 @@ $set_product_cat_name_l = strtolower($set_product_cat_name);
 
 
         <!-- Tab links -->
-        <div class="scrolling-wrapper">
+       
  
-  <div class="card">
-        <div class="tab">
 
             <?php
 
@@ -56,48 +54,14 @@ $set_product_cat_name_l = strtolower($set_product_cat_name);
 $args = array('taxonomy'     => 'product_cat');
 $all_categories = get_categories( $args );
 
- foreach ($all_categories as $cat) {
-    $l_catName = strtolower($cat->name); 
 
-
-
-
-    if($set_product_cat_name){
-        
-        if($set_product_cat_name==$cat->name){?>
-            <button class="tablinks active"
-                onclick="openCity(event, '<?php echo $l_catName; ?>')"><?php echo $cat->name; ?></button>
-            <?php
-        }else{
-?>
-            <button class="tablinks"
-                onclick="openCity(event, '<?php echo $l_catName; ?>')"><?php echo $cat->name; ?></button>
-            <?php
-        }
-
-    }else{
-        if($i==0):
-            $i++;
-        ?>
-            <button class="tablinks active"
-                onclick="openCity(event, '<?php echo $l_catName; ?>')"><?php echo $cat->name; ?></button>
-            <?php  else:  ?>
-            <button class="tablinks"
-                onclick="openCity(event, '<?php echo $l_catName; ?>')"><?php echo $cat->name; ?></button>
-            <?php
-        endif; 
-    }
    
    
             
- }
+
 ?>
 
-        </div>
       
-        </div>
-
-</div>
 
         <!-- Display Tabs content -->
         <?php
@@ -106,7 +70,14 @@ $all_categories = get_categories( $args );
 foreach ($all_categories as $cat) {
     $l_catName = strtolower($cat->name); 
          
+?>
+<div class="">
+<h2 class="ff-ultra w-full text-center py-2 mt-2 rounded-md  border-b broder-[#aaa] z-50">
 
+<?php echo $cat->name; ?>
+</h2>
+<ul>
+<?php
 
     
 if($set_product_cat_name){
@@ -114,11 +85,11 @@ if($set_product_cat_name){
     if($set_product_cat_name==$cat->name){
       //  echo $set_product_cat_name;
         ?>
-        <div style="display:block;" id="<?php echo $l_catName; ?>" class="tabcontent active">
+        <div style="display:block;" id="<?php echo $l_catName; ?>" class="">
             <?php
     }else{
         ?>
-            <div id="<?php echo $l_catName; ?>" class="tabcontent">
+            <div id="<?php echo $l_catName; ?>" class="">
                 <?php
     }
 }else{
@@ -126,11 +97,11 @@ if($set_product_cat_name){
     if($i==0):
         $i++;
     ?>
-                <div style="display:block;" id="<?php echo $l_catName; ?>" class="tabcontent active">
+                <div style="display:block;" id="<?php echo $l_catName; ?>" class="">
                     <?php
   else:
     ?>
-                    <div id="<?php echo $l_catName; ?>" class="tabcontent">
+                    <div id="<?php echo $l_catName; ?>" class="">
                         <?php
     endif;
 
@@ -186,7 +157,7 @@ if($set_product_cat_name){
 
                             <div class="menu-product-pr-ad">
 
-                                <div class="menu-product-price">
+                                <div class="menu-list-add-cart-button">
 
                                 
                                <?php
@@ -223,7 +194,7 @@ if($set_product_cat_name){
           }
       
              
-      
+      echo '<div class="clear-both h-3 w-full bg-red-600"></div>';
      // $obje = ["title"=>get_the_title(),"link"=>get_the_permalink(),"cat"=>$cat_name];
       
         //  array_push($stack,$obje);
@@ -238,7 +209,11 @@ if($set_product_cat_name){
 
 
          ?>
-                    </div> <?php
+                    </div>
+                    </ul>
+    </div><!-- end of one cat product --->
+    
+                    <?php
         }
 ?>
 

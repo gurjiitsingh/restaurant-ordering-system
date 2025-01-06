@@ -174,6 +174,71 @@ jQuery(document).ready(function ($) {
       },
     });
   }); // end of data select
+
+
+// FORM SUBIT FOR TABLE BOOK
+
+$('form.ajax').on('submit', function (e) {
+
+  e.preventDefault();
+//alert("jk1");
+  var name = $('.name').val();
+  var email = $('.email').val();
+  //var message1 = $('.message').val();
+  var book_date = $('.book_date').val();
+  var book_time = $('.book_time').val();
+  $('#contact-submit').attr('disabled','disabled');
+//console.log("name"+name+"email"+email+"book date"+book_date+"book_time"+book_time)
+
+ /* var data1 = {
+    action: 'set_form',
+    url: cpm_object.ajax_url,
+    postCommentNonce: cpm_object.postCommentNonce,
+    name: name,
+    email: emai,
+    message: message
+  };*/
+
+
+  // this is best and working AJAX jQuery 
+//  jQuery.post(cpm_object.ajax_url, data, function (response) {
+ //   alert('Response: ' + response);
+//  });
+
+// sender_message: message1,
+
+  jQuery.ajax({
+    url: cpm_object.ajax_url,
+    type: 'post',
+    //dataType: 'json',
+    data: {
+        action: 'set_form',
+        postCommentNonce: cpm_object.postCommentNonce,
+        sender_name: name,
+        sender_email: email,
+        book_date:book_date,
+        book_time:book_time
+        },
+    success: function (response) {
+      alert('Response: ' + response);
+       $('.name').val('');
+   $('.email').val('');
+  // $('.message').val('');
+    }
+});
+
+
+
+
+
+
+});// end of submit form
+
+
+
+
+
+
 }); //end of main function
 
 

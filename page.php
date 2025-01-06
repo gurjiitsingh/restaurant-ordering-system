@@ -14,6 +14,21 @@
 
 get_header();
 ?>
+<style>
+	/* cart page address style overide  */
+
+	.wc-block-components-shipping-address{
+		line-height: 30px !important;
+	
+	}
+.wc-block-components-totals-shipping .wc-block-components-totals-shipping__change-address__link{
+	width:100%;
+  padding: 8px !important;
+  background: #eee !important;
+  border-radius: 6px !important;
+  color:#00cc00;
+}
+</style>
 <div class="container">
 	<main id="primary" class="site-main">
 

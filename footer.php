@@ -13,33 +13,31 @@
 
 
 
-<footer class="site-footer">
-        <div class="footer-bg">
+<footer class="site-footer z-999">
+        <div class="">
             <div class="container">
                 <div class="footer-flex ">
-                    <div class="footer-col-f">
-                        <h2>About us</h2>
-                        <p>At Masala-, we believe in the power of culinary fusion to create memorable dining
-                            experiences. Our restaurant is a celebration of diversity, bringing together the rich
-                            flavors and spices of Australian, Mexican, and Indian cuisines under one roof.
-                            <br />
-                            Founded with a passion for innovation and a love for bold flavors, Masala- aims to redefine
-                            traditional dining norms and offer our guests a unique and exciting culinary adventure. Our
-                            menu is a reflection of our commitment to creativity and authenticity, featuring a diverse
-                            range of dishes that seamlessly blend the best of each culinary tradition.
-                            <br />But Masala- is more than just a restaurant—it's a place where cultures collide,
-                            friendships are forged, and memories are made.
-                        </p>
+                    <div class="footer-col-f z-999">
+                        <h2 class="w-full">Links</h2>
+                        <ul class="flex flex-col gap-3">
+                            <li class="border-b border-slate-500 pb-1"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a></li>
+                            <li class="border-b border-slate-500 pb-1"><a href="<?php echo site_url('/shop'); ?>">Menü</a></li>
+                            <li class="border-b border-slate-500 pb-1"><a href="<?php echo site_url('/about'); ?>">Über Uns</a></li>
+                            <li class="border-b border-slate-500 pb-1"><a href="<?php echo site_url('/contact'); ?>">Kontakt</a></li>
+                            <li class="border-b border-slate-500 pb-1"><a href="<?php echo site_url('/table-reservation'); ?>">Tisch reservation</a></li>
+                            <li class="border-b border-slate-500 pb-1"><a href="<?php echo site_url('/allergene'); ?>">Allergene</a></li>
+
+</ul>
                     </div>
-                    <div class="footer-col-s">
+                    <div class="footer-col-s pt-0 ">
 
 
 
 
-                        <h2 class="text-align-center"></h2>
+                        <h2 class="text-align-center ">Address</h2>
+                       
 
-
-                        <div class="box-shadow  g">
+                        <div class="box-shadow  g md:mt-12">
 
                             <div class="footer-col-content">
 
@@ -69,14 +67,6 @@
                             </div>
                         </div>
                         <p class="fp-c">
-                            Whether you're joining us for a casual meal with friends or celebrating a special occasion
-                            with loved ones, we invite you to embark on a culinary journey like no other at Masala-.
-
-                            <br />
-                            Come experience the fusion feast at Masala- and discover the magic of
-                            Australian-Mexican-Indian cuisine. Our doors are open, and our flavors await your arrival.
-                            Welcome to Masala-, where every bite tells a story of culinary adventure and cultural
-                            discovery.
 
                         </p>
 
@@ -88,10 +78,7 @@
 
 
 
-                            <p class="op-h-p">From mouthwatering tacos with a spicy Indian twist to sumptuous curries
-                                infused with Mexican flair,
-                                every dish at Masala- is a testament to our dedication to culinary excellence and
-                                cultural appreciation. </p>
+                           
 
 
                             <div class="row-footer-col">
@@ -100,7 +87,7 @@
 
 
 
-                                <p class="book-time">7&nbspAM-2:30&nbspPM</p>
+                                <p class="book-time">11.00&nbspAM-10.00&nbspPM</p>
 
                             </div>
 
@@ -110,7 +97,7 @@
 
 
 
-                                <p class="book-time">7&nbspAM-2:30 PM,&ensp; 6-9:30&nbspPM</p>
+                                <p class="book-time">11.00&nbspAM-10.00&nbspPM</p>
 
                             </div>
 
@@ -120,7 +107,7 @@
 
 
 
-                                <p class="book-time">7&nbspAM-2:30&nbspPM,&ensp; 6-9&nbspPM</p>
+                                <p class="book-time">11.00&nbspAM-10.00&nbspPM</p>
 
                             </div>
 
@@ -130,7 +117,7 @@
 
 
 
-                                <p class="book-time">7&nbspAM-3&nbspPM,&ensp; 6-9&nbspPM</p>
+                                <p class="book-time">11.00&nbspAM-10.00&nbspPM</p>
 
                             </div>
 
@@ -140,7 +127,7 @@
 
 
 
-                                <p class="book-time">7&nbspAM-3&nbspPM,&ensp; 6-9&nbspPM</p>
+                                <p class="book-time">11.00&nbspAM-10.00&nbspPM</p>
 
                             </div>
                             <div class="row-footer-col">
@@ -149,7 +136,7 @@
 
 
 
-                                <p class="book-time">9&nbspAM-2:30&nbspPM,&ensp; 6-10&nbspPM</p>
+                                <p class="book-time">11.00&nbspAM-10.00&nbspPM</p>
 
                             </div>
                             <div class="row-footer-col">
@@ -158,7 +145,7 @@
 
 
 
-                                <p class="book-time">Closed</p>
+                                <p class="book-time">11.00&nbspAM-10.00&nbspPM</p>
 
                             </div>
 
@@ -198,7 +185,6 @@
 
     </footer>
 
-    <?php wp_footer(); ?>
 
 <script>
 
@@ -211,15 +197,42 @@ btnNavEl.addEventListener("click", function () {
   headerEl.classList.toggle("nav-open");
 });
 
-// prevent reload add to cart button 
 
-(function ($) {
-$( document ).on( 'click', '.single_add_to_cart_button', function(e) {
-e.preventDefault();
-});
-})(jQuery);
 
 </script>
 
+<div class="overlay hidden1"></div>
+
+<div class="modal1 hidden1   rounded-lg bg-slate-200 text-slate-700">
+ <div class="flex flex-col gap-2">   
+   <div class="flex gap-2">
+<div><h3>Delivery Tiers</h3></div><div><button class="btn--close-modal">&times;</button></div>
+   </div>
+   <div class="flex gap-2 justify-between border-blue-100 rounded-md">
+<div >4 Km</div><div class="text-[.9rem] font-light">Min order: 9.99 &#8364;, Delivery Free: 0.00 &#8364;</div>
+</div>
+
+<div class="flex gap-2 justify-between border-blue-100 rounded-md">
+<div >10 Km</div><div class="text-[.9rem] font-light">Min order: 9.99 &#8364;, Delivery Free: 2.00 &#8364;</div>
+</div>
+
+<div class="flex gap-2 justify-between border-blue-100 rounded-md">
+<div >15 Km</div><div class="text-[.9rem] font-light">Min order: 29.99 &#8364;, Delivery Free: 3.00 &#8364;</div>
+</div>
+
+<div class="flex gap-2 justify-between border-blue-100 rounded-md">
+<div >20 Km</div><div class="text-[.9rem] font-light">Min order: 69.99 &#8364;, Delivery Free: 5.00  &#8364;</div>
+</div>
+   </div>
+
+
+
+   
+</div>
+
+</div>
+
+
+<?php wp_footer(); ?>
 </body>
 </html>

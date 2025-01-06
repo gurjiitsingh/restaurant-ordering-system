@@ -32,8 +32,10 @@ Add the @tailwind directives for each of Tailwind’s layers to your main CSS fi
 4. Start the Tailwind CLI build process
 Run the CLI tool to scan your template files for classes and build your CSS.
 
+single file:
 npx tailwindcss -i ./input.css -o ./style.css --watch
-
+multiple file: create a folder
+npx tailwindcss -i ./style/**.*.css -o ./style.css --watch
 
 
 # tailwind translation tool

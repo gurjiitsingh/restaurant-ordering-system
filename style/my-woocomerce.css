@@ -1,0 +1,30 @@
+/******************************
+    MY ACCOUNT  -- new 12/22/2024
+   *******************************/
+   .entry-content{
+    @apply lg:w-3/4 pt-[4%]
+  }
+
+  .woocommerce-form-row--wide {
+    @apply text-[1rem]
+      }
+.woocommerce-form-row--wide{
+@apply flex flex-col  gap-2 w-full  rounded-md
+}
+.woocommerce-form-row--wide .woocommerce-Input--text{
+@apply bg-slate-100 rounded-md   w-1/2 md:w-[300px]
+}
+
+.woocommerce-form-row--wide label {
+@apply   bg-white 
+}
+
+.woocommerce-form-login__rememberme{
+@apply text-[1rem] bg-white
+}
+.woocommerce-form-login__submit{
+@apply text-[1rem] mt-2 text-white py-1 
+}
+.entry-header h1.entry-title{
+@apply text-[2rem]
+}

@@ -1,0 +1,78 @@
+.header {
+  @apply absolute flex justify-between items-center w-full z-[999] h-[100px] px-0 py-2.5; /*border-bottom: 1px solid hsl(180, 14%, 11%);*/ /* Because we want header to be sticky later */ /* background-color: #00d084; */ /* opacity: .4; */ /* position: relative; */
+}
+.logo {
+  @apply h-5;
+}
+.nav-wrapper {
+  @apply flex flex-row w-full flex-wrap justify-between mt-2 md:mt-4;
+  align-content: start;
+}
+.main-nav-list {
+  @apply flex items-center gap-[25px] z-[9997];
+  list-style: none; /* gap: 4.8rem;*/
+}
+.main-nav-link:link,
+.main-nav-link:visited {
+  @apply inline-block no-underline text-white font-medium text-[17px] transition-all duration-[0.3s] inline-block no-underline text-white font-medium text-[17px] transition-all duration-[0.3s];
+}
+.main-nav-link:hover,
+.main-nav-link:active {
+  @apply text-[#ac8c70];
+}
+.main-nav-link.nav-cta:link,
+.main-nav-link.nav-cta:visited {
+  @apply text-white px-5 py-[5px] rounded-[20px] text-white bg-[#d2335b];
+}
+.main-nav-link.nav-cta:hover,
+.main-nav-link.nav-cta:active {
+  @apply text-[#eee] bg-[#45cda5] text-white;
+}
+ul.main-nav-list li:last-child a:link {
+  @apply bg-[#d2335b] text-white px-5 py-[5px] rounded-[20px];
+}
+ul.main-nav-list li:last-child a:hover {
+  @apply bg-[#d5083b] text-[#f3d8a2] px-5 py-[5px] rounded-[20px];
+}
+
+/* MOBILE */
+.btn-mobile-nav {
+  @apply block cursor-pointer hidden z-[99999] p-0 border-[none];
+  background: none; /* font-size: 15px; */
+}
+.icon-mobile-nav {
+  @apply text-[#fff] p-2.5 rounded-[10px]; /* height: 40px;
+      width: 40px; */
+}
+.btn-mobile-nav :hover {
+  /* background-color: #e90c59; */
+}
+.icon-mobile-nav[name="close-outline"] {
+  @apply hidden;
+}
+
+
+
+
+
+/*******dubted repaea **/
+.woocommerce ul.products.columns-3 li.product,
+.woocommerce-page ul.products.columns-3 li.product {
+  @apply flex flex-col w-full bg-[#0c40e9] p-[30px];
+}
+.woocommerce ul.products li.product a img {
+  @apply w-1/5 h-1/5 block shadow-none bg-[#dae90c] m-0 p-[30px];
+}
+.wc-columns-container .products,
+.woocommerce .related ul.products,
+.woocommerce .up-sells ul.products {
+  @apply gap-[50px] bg-[#481572] mb-[50px];
+}
+.woocommerce ul.products li.product .button {
+  @apply block mx-auto;
+}
+.wc-columns-container {
+  @apply flex flex-col;
+}
+
+/************** dout end *********/

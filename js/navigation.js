@@ -97,3 +97,44 @@
 		}
 	}
 }() );
+
+
+
+
+//******************** Free Order backdrop  ******************//
+
+// const freeOrderBackDrop = document.querySelector(".free-order");
+
+// //alert("testr")
+// console.log("This is backdrop test", freeOrderBackDrop)
+
+// freeOrderBackDrop.addEventListener("click",()=>{
+// 	console.log("tes is st")
+// })
+
+
+//const btnsOpenModal  = document.querySelector('.btn--show-modal'); 
+const btnsOpenModal = document.querySelector('.free-order');
+//const modal = document.querySelector('.modal1');
+const modal1 = document.querySelector('.modal1');
+const overlay1 = document.querySelector('.overlay');
+const btnCloseModal = document.querySelector('.btn--close-modal');
+
+overlay1.addEventListener("click",()=>{
+	modal1.classList.add('hidden1');
+    overlay1.classList.add('hidden1');
+})
+
+const openModal = function(e) {
+    
+    e.preventDefault();
+    modal1.classList.remove('hidden1');
+    overlay1.classList.remove('hidden1');
+};
+//btnsOpenModal.addEventListener('click', openModal);
+
+
+btnCloseModal.addEventListener('click', function() {
+    modal1.classList.add('hidden1');
+    overlay1.classList.add('hidden1');
+});

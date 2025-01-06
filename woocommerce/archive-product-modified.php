@@ -42,6 +42,9 @@ $set_product_cat_name_l = strtolower($set_product_cat_name);
 
 
         <!-- Tab links -->
+        <div class="scrolling-wrapper">
+ 
+  <div class="card">
         <div class="tab">
 
             <?php
@@ -91,8 +94,10 @@ $all_categories = get_categories( $args );
 ?>
 
         </div>
+      
+        </div>
 
-
+</div>
 
         <!-- Display Tabs content -->
         <?php
@@ -131,166 +136,117 @@ if($set_product_cat_name){
 
 }
 
-?>
 
 
+  
+    ?>
 
+                        <?php
+         
+         $args = array(
+          'post_type' => 'product',
+          'posts_per_page' => -1
+        
+      );
 
-
-
-
-<!-- product loop start       -->
-
-<?php
-/**
- * Hook: woocommerce_before_main_content.
- *
- * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
- * @hooked woocommerce_breadcrumb - 20
- * @hooked WC_Structured_Data::generate_website_data() - 30
- */
-do_action( 'woocommerce_before_main_content' );
-
-/**
- * Hook: woocommerce_shop_loop_header.
- *
- * @since 8.6.0
- *
- * @hooked woocommerce_product_taxonomy_archive_header - 10
- */
-do_action( 'woocommerce_shop_loop_header' );
-
-if ( woocommerce_product_loop() ) {
-
-	/**
-	 * Hook: woocommerce_before_shop_loop.
-	 *
-	 * @hooked woocommerce_output_all_notices - 10
-	 * @hooked woocommerce_result_count - 20
-	 * @hooked woocommerce_catalog_ordering - 30
-	 */
-	do_action( 'woocommerce_before_shop_loop' );
-
-	woocommerce_product_loop_start();
-
-    $args = array(
-        'post_type' => 'product',
-        'posts_per_page' => -1
-      
-    );
-
-	if ( wc_get_loop_prop( 'total' ) ) {
-        $posts = new WP_Query($args);
-		while ($posts->have_posts() ) {
-            $posts->the_post();
+      $posts = new WP_Query($args);
+      if ($posts->have_posts()) {
+        while ($posts->have_posts()) {
+          $posts->the_post();
           
-            // Output the post title with a link
-            //echo '<a href="'.get_the_permalink() . '">'.get_the_title() .'</a><br>';
-            $post_id = get_the_ID(); // Get the current post ID
-            $categories = get_the_category($post_id);
-            $products_categories = get_the_terms( get_the_ID(), 'product_cat' );
-            $cat_name = $products_categories[0]->name;
-  
-            $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'thumbnail' );
-           // var_dump($products_categories);
-            //echo $cat->name."<br>";
-           // echo $cat_name."<br>";
-            //$cat_name = $products_categories[0]->name;
-            if($cat->name == $cat_name){
+          // Output the post title with a link
+          //echo '<a href="'.get_the_permalink() . '">'.get_the_title() .'</a><br>';
+          $post_id = get_the_ID(); // Get the current post ID
+          $categories = get_the_category($post_id);
+          $products_categories = get_the_terms( get_the_ID(), 'product_cat' );
+          $cat_name = $products_categories[0]->name;
+
+          $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'thumbnail' );
+         // var_dump($products_categories);
+          //echo $cat->name."<br>";
+         // echo $cat_name."<br>";
+          //$cat_name = $products_categories[0]->name;
+          if($cat->name == $cat_name){
+            ?>
+                        <li class='menu-product-flex'>
+                            <div class="menu-product-img">
+                                <img src="<?php echo $image[0]; ?>"
+                                    alt="<?php echo wp_get_attachment_caption( get_the_ID() )?>">
+                            </div>
+
+
+                            <div class="menu-product-title">
+                                <h3 class=""><?php echo get_the_title(); ?></h3>
+                                <p><?php 
+                         echo do_shortcode( "[product_description]" );
+                             ?>
+                             </p>
+                            </div>
+
+
+                            <div class="menu-product-pr-ad">
+
+                                <div class="menu-list-add-cart-button">
+
+                                
+                               <?php
+                             //  '<a href="%s" data-quantity="1" class="%s" %s>%s</a>'
+                echo sprintf( '<a href="%s" data-quantity="1" class="%s" %s>%s</a>',
+                    esc_url( $product->add_to_cart_url() ),
+                    esc_attr( implode( ' ', array_filter( array(
+                        'button', 'product_type_' . $product->get_type(),
+                        $product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button' : '',
+                        $product->supports( 'ajax_add_to_cart' ) ? 'ajax_add_to_cart' : '',
+                    ) ) ) ),
+                    wc_implode_html_attributes( array(
+                        'data-product_id'  => $product->get_id(),
+                        'data-product_sku' => $product->get_sku(),
+                        'aria-label'       => $product->add_to_cart_description(),
+                        'rel'              => 'nofollow',
+                    ) ),
+                    esc_html( $product->add_to_cart_text() )
+                );
               ?>
-                          <li class='menu-product-flex'>
-                              <div class="menu-product-img">
-                                  <img src="<?php echo $image[0]; ?>"
-                                      alt="<?php echo wp_get_attachment_caption( get_the_ID() )?>">
-                              </div>
-  
-  
-                              <div class="menu-product-title">
-                                  <h3 class=""><?php echo get_the_title(); ?></h3>
-                                  <p><?php 
-                           echo do_shortcode( "[product_description]" );
-                               ?>
-                               </p>
-                              </div>
-  
-  
-                              <div class="menu-product-pr-ad">
-  
-                                  <div class="menu-product-price">
-                                      <?php 
-                                      wc_get_template( 'loop/add-to-cart.php' ); 
-                                      ?>
-                                  </div>
-                                  <div class="menu-product-price">
-                                      <?php wc_get_template( 'loop/price.php' ); ?>
-                                  </div>
-  
-                              </div>
-  
-  
-  
-                          </li>
-                          <?php
-            }
-		}
-	}
+                                    <?php 
+                                    //wc_get_template( 'loop/add-to-cart.php' );/ ?>
+                                </div>
+                                <div class="menu-product-price">
+                                    <?php wc_get_template( 'loop/price.php' ); ?>
+                                </div>
 
-	woocommerce_product_loop_end();
+                            </div>
 
-	/**
-	 * Hook: woocommerce_after_shop_loop.
-	 *
-	 * @hooked woocommerce_pagination - 10
-	 */
-	do_action( 'woocommerce_after_shop_loop' );
-} else {
-	/**
-	 * Hook: woocommerce_no_products_found.
-	 *
-	 * @hooked wc_no_products_found - 10
-	 */
-	do_action( 'woocommerce_no_products_found' );
-}
 
-/**
- * Hook: woocommerce_after_main_content.
- *
- * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
- */
-do_action( 'woocommerce_after_main_content' );
+
+                        </li>
+                        <?php
+          }
+      
+             
+      
+     // $obje = ["title"=>get_the_title(),"link"=>get_the_permalink(),"cat"=>$cat_name];
+      
+        //  array_push($stack,$obje);
+        }
+      } else {
+        echo 'no found';
+      }
+      wp_reset_query();
+
+
+
+
+
+         ?>
+                    </div> <?php
+        }
 ?>
-
-
-
-    
-
-
-
-
-
-                    
-<?php
-  }
-?>
-
-
-
-
-
-
 
 
                     <br /><br />
 
     </main><!-- #main -->
 </div>
-
-
-
-
-
-
-
 <?php
 // get_sidebar();
 get_footer();
