@@ -29,12 +29,12 @@ function prefix_add_discount_line( $cart ) {
 
   //add_action( 'init', 'get_packages_custom' );
 
-//function get_packages_custom() {
+function get_packages_custom() {
 
 //print_r(WC()->cart->calculate_totals());
 //print_r(WC()->cart->calculate_shipping());
 
-//}
+}
 
 
 
@@ -53,3 +53,4 @@ function prefix_add_discount_line( $cart ) {
 // }
 
 
+?> 
