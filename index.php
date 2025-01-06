@@ -68,7 +68,7 @@ get_header();
                 fill-rule="evenodd"></path>
         </svg>
     </span> -->
-    <span class="gb-button-text font-bold">Tisch reservation</span>
+    <span class="gb-button-text font-bold">Tisch reservation</span><span class="dashicons dashicons-welcome-write-blog"></span>
 </a>
 
 
@@ -81,7 +81,7 @@ get_header();
                 d="M223.635 114.182 55.852 18.142a15.99 15.99 0 0 0-16.123.046 15.663 15.663 0 0 0-7.915 13.668v192.288a15.663 15.663 0 0 0 7.915 13.668 15.989 15.989 0 0 0 16.123.046l167.783-96.04a15.762 15.762 0 0 0 0-27.636ZM144 139.313l18.856 18.857-88.19 50.477ZM74.655 47.341l88.202 50.488L144 116.687Zm102.592 102.593L155.313 128l21.935-21.934L215.568 128Z">
             </path>
         </svg></span> -->
-    <span class="gb-button-text font-bold">Buffet</span>
+    <span class="gb-button-text font-bold">Buffet</span><span class="dashicons dashicons-food"></span>
 </a>
 
 </div>

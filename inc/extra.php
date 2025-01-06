@@ -52,5 +52,13 @@ function get_packages_custom() {
 //   return '49'; // state code
 // }
 
+/**
+ * show dashicome on frot end
+ */
+function ww_load_dashicons(){
+  wp_enqueue_style('dashicons');
+}
+add_action('wp_enqueue_scripts', 'ww_load_dashicons', 999);
+
 
 ?> 
