@@ -48,8 +48,8 @@
                                     <!-- <br><a href="mailto:hello@flavor.com">hello@flavor.com</a> -->
 
                                 </p>
-                                <div class="tel"><a href="tel: 05371 6266291"><span class="dashicons dashicons-phone"></span> 05371 6266291</a></div>
-                                <div class="email"><a href="email: info@masala-gf.de"><span class="dashicons dashicons-email"></span>info@masala-gf.de</a></div>
+                                <div class="tel"><a href="tel: 05371 6266291"><span class="dashicons dashicons-phone mr-1"></span> 05371 6266291</a></div>
+                                <div class="email"><a href="email: info@masala-gf.de"><span class="dashicons dashicons-email mr-1"></span>info@masala-gf.de</a></div>
 
                                 <h3 class="h-headline-text"></h3>
 

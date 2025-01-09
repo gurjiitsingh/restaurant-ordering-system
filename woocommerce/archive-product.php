@@ -116,6 +116,7 @@ if($set_product_cat_name){
          
          $args = array(
           'post_type' => 'product',
+          'orderby' => 'menu_order',
           'posts_per_page' => -1
         
       );

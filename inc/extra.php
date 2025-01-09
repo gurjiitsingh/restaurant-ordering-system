@@ -60,5 +60,15 @@ function ww_load_dashicons(){
 }
 add_action('wp_enqueue_scripts', 'ww_load_dashicons', 999);
 
+/**
+ * cart text change
+ */
 
-?> 
+add_filter('woocommerce_cart_shipping_method_full_label', 'ts_change_shipping_label', 10, 2);
+function ts_change_shipping_label($full_label, $method) {
+    $search_string = 'Flat rate';
+    $replacement = 'Delivery';
+    // Case-insensitive replacement
+    $full_label = preg_replace('/' . preg_quote($search_string, '/') . '/i', $replacement, $full_label);
+    return $full_label;
+}
